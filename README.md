@@ -1,11 +1,83 @@
 # rant-ui
-基于vue, 是组件库（组件还在逐步开发中），也是开箱即用的组件库脚手架
+Rant-UI，基于vue搭建的组件库，可作为脚手架进行二次开发，还在完善更新组件中……
 
-## 使用组件
+## 快速使用组件
 
-安装依赖
+#### 安装依赖
 ```
-yarn add rant-ui
+yarn add rant-ui 或者 npm install rant-ui
+```
+
+#### CDN
+```html
+<link href='//xxx.xxx.cn/rant-ui/index.css'/>
+<script src='//xxx.xxx.cn/rant-ui/index.js'></script>
+```
+
+#### 全量导入
+
+```js
+import Vue from "vue";
+import VueRouter from "vue-router";
+import App from "components/app.vue";
+import Routers from "./router.js";
+
+// 主要是这里
+import RantUi from "rant-ui";
+import "rant-ui/lib/index.css";
+Vue.use(RantUi);
+
+Vue.use(VueRouter);
+const RouterConfig = {
+  routes: Routers,
+};
+const router = new VueRouter(RouterConfig);
+
+new Vue({
+  el: "#app",
+  router: router,
+  render: (h) => h(App),
+});
+```
+
+#### 按需导入（推荐）
+
+先安装 babel-plugin-import 插件
+
+```
+yarn add babel-plugin-import
+```
+
+配置 babel.config.js
+
+```js
+module.exports = {
+  ...
+  plugins: [
+    ['import', {
+      libraryName: 'rant-ui',
+      libraryDirectory: 'packages',
+      style: (name) => {
+        return `${name}/${name.split('/').pop()}.css`;
+      },
+    }, 'rant-ui']
+  ]
+}
+```
+
+导入指定组件
+
+```html
+<template>
+  <Button>按钮</Button>
+</template>
+<script>
+import { Button } from "rant-ui";
+export default {
+  components: {
+    Button
+  }
+}
 ```
 
 ## 开发组件
@@ -23,6 +95,11 @@ yarn dev 或者 npm run dev
 打包库
 ```
 yarn lib 或者 npm run lib
+```
+
+编译并打包
+```
+yarn build:all 或者 npm run build:all
 ```
 
 <!-- ## 组件开发文档
