@@ -1,4 +1,4 @@
-![RANT-UI](src\assets\images\pzm-578.png#pic_center=250x)
+![RANT-UI](/src/assets/images/pzm-578.png#pic_center=250x)
 # rant-ui
 Rant-UI，基于vue搭建的组件库，可作为脚手架进行二次开发，还在完善更新组件中……
 
