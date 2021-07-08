@@ -1,5 +1,3 @@
-![Image text](https://raw.githubusercontent.com/Abner0101/rant-ui/master/src/assets/images/pzm-578.png)
-
 # rant-ui
 Rant-UI，基于vue搭建的组件库，可作为脚手架进行二次开发，还在完善更新组件中……
 
